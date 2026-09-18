@@ -1,0 +1,544 @@
+:root {
+  --dunkel: #171033;
+  --dunkler: #0e0a22;
+  --papier: #fffdf7;
+  --schrift: 'Comic Sans MS', 'Chalkboard SE', 'Baloo 2', 'Segoe UI Rounded', 'Nunito',
+    system-ui, -apple-system, sans-serif;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#wurzel {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--dunkel);
+  color: #fff;
+  font-family: var(--schrift);
+  overscroll-behavior: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* ------------------------------- Startbildschirm ------------------------------ */
+
+.start {
+  min-height: 100%;
+  padding: clamp(1.5rem, 5vw, 3.5rem) clamp(1rem, 5vw, 3rem) 4rem;
+  margin: 0 auto;
+  max-width: 62rem;
+  background:
+    radial-gradient(circle at 15% 0%, #3a2a7a 0%, transparent 55%),
+    radial-gradient(circle at 85% 20%, #7a2a63 0%, transparent 50%),
+    var(--dunkel);
+  background-attachment: fixed;
+}
+
+.start-kopf h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 8vw, 4.5rem);
+  letter-spacing: -0.02em;
+  background: linear-gradient(95deg, #ffd023, #ff7fc8 45%, #3d8bff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hand {
+  -webkit-text-fill-color: initial;
+  display: inline-block;
+  animation: winken 2.4s ease-in-out infinite;
+}
+
+@keyframes winken {
+  0%, 60%, 100% { transform: rotate(0deg); }
+  70% { transform: rotate(-18deg); }
+  80% { transform: rotate(12deg); }
+  90% { transform: rotate(-8deg); }
+}
+
+.untertitel {
+  margin: 0.6rem 0 2rem;
+  font-size: clamp(1rem, 2.4vw, 1.3rem);
+  line-height: 1.5;
+  color: #d8d2f5;
+  max-width: 44rem;
+}
+
+.abschnitt {
+  font-size: 1.2rem;
+  margin: 2rem 0 0.9rem;
+  color: #b9b1e8;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.modus-liste {
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+
+.modus-karte {
+  display: grid;
+  gap: 0.3rem;
+  padding: 1.1rem 1.2rem;
+  text-align: left;
+  border-radius: 1.3rem;
+  border: 3px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  transition: transform 140ms ease, border-color 140ms ease, background 140ms ease;
+}
+
+.modus-karte:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.11);
+}
+
+.modus-karte.gewaehlt {
+  border-color: #ffd023;
+  background: rgba(255, 208, 35, 0.16);
+}
+
+.modus-symbol {
+  font-size: 2.2rem;
+  line-height: 1.1;
+}
+
+.modus-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.modus-text {
+  font-size: 0.95rem;
+  color: #cfc8ef;
+  line-height: 1.4;
+}
+
+.schalter-reihe {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.schalter {
+  padding: 0.75rem 1.2rem;
+  border-radius: 999px;
+  border: 3px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 700;
+  transition: transform 140ms ease, background 140ms ease, border-color 140ms ease;
+}
+
+.schalter:hover {
+  transform: translateY(-2px);
+}
+
+.schalter.an {
+  border-color: #35d07f;
+  background: rgba(53, 208, 127, 0.2);
+}
+
+.los {
+  display: block;
+  width: 100%;
+  margin: 2.5rem 0 1rem;
+  padding: 1.3rem 2rem;
+  border: none;
+  border-radius: 1.6rem;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 800;
+  color: #2a1a00;
+  background: linear-gradient(100deg, #ffd023, #ff9130 55%, #ff7fc8);
+  box-shadow: 0 12px 0 #a3541c, 0 18px 30px rgba(0, 0, 0, 0.35);
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.los:hover {
+  transform: translateY(-2px);
+}
+
+.los:active {
+  transform: translateY(8px);
+  box-shadow: 0 4px 0 #a3541c, 0 8px 16px rgba(0, 0, 0, 0.35);
+}
+
+.eltern-hinweis {
+  margin-top: 2.5rem;
+  padding: 1.3rem 1.5rem;
+  border-radius: 1.3rem;
+  background: rgba(0, 0, 0, 0.28);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.eltern-hinweis h2 {
+  margin: 0 0 0.7rem;
+  font-size: 1.15rem;
+  color: #ffd023;
+}
+
+.eltern-hinweis ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  line-height: 1.6;
+  color: #ded8f7;
+  font-size: 0.98rem;
+}
+
+.eltern-hinweis li + li {
+  margin-top: 0.5rem;
+}
+
+kbd {
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 0.4rem;
+  padding: 0.1rem 0.45rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+/* ---------------------------------- Spiel ---------------------------------- */
+
+.spiel {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  touch-action: none;
+  background:
+    radial-gradient(circle at 18% 22%, hsl(calc(var(--stimmung) * 1deg) 65% 26%) 0%, transparent 58%),
+    radial-gradient(circle at 82% 72%, hsl(calc((var(--stimmung) + 130) * 1deg) 65% 28%) 0%, transparent 58%),
+    var(--dunkler);
+  transition: background 700ms ease;
+}
+
+.buehne {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.element {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  animation: erscheinen 3.4s ease-out forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes erscheinen {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.2) rotate(calc(var(--drehung) * -2));
+  }
+  9% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(calc(var(--groesse) * 1.18)) rotate(var(--drehung));
+  }
+  16% {
+    transform: translate(-50%, -50%) scale(var(--groesse)) rotate(var(--drehung));
+  }
+  78% {
+    opacity: 1;
+    transform: translate(-50%, -54%) scale(var(--groesse)) rotate(var(--drehung));
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -68%) scale(calc(var(--groesse) * 1.08)) rotate(var(--drehung));
+  }
+}
+
+.stapel {
+  display: grid;
+  justify-items: center;
+  gap: 0.4rem;
+}
+
+.zeichen {
+  font-size: clamp(5rem, 20vmin, 15rem);
+  font-weight: 800;
+  line-height: 0.95;
+  color: var(--farbe);
+  text-shadow: 0 0 22px color-mix(in srgb, var(--farbe) 55%, transparent), 0 10px 0 rgba(0, 0, 0, 0.25);
+}
+
+.tier {
+  font-size: clamp(4.5rem, 19vmin, 13rem);
+  line-height: 1;
+  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.35));
+}
+
+.form {
+  width: clamp(6rem, 19vmin, 12rem);
+  height: clamp(6rem, 19vmin, 12rem);
+  filter: drop-shadow(0 10px 16px rgba(0, 0, 0, 0.35));
+}
+
+.schild {
+  padding: 0.35em 0.9em;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.94);
+  color: #241a44;
+  font-size: clamp(0.95rem, 2.6vmin, 1.8rem);
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+.punkte {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5vmin;
+  max-width: 26vmin;
+}
+
+.punkt {
+  width: 2.4vmin;
+  height: 2.4vmin;
+  border-radius: 50%;
+  background: var(--farbe);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--farbe) 60%, transparent);
+}
+
+.funken {
+  position: absolute;
+  inset: 50% auto auto 50%;
+}
+
+.funke {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  border-radius: 50%;
+  animation: funkenflug 760ms ease-out var(--verzug) forwards;
+}
+
+@keyframes funkenflug {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--dx), var(--dy)) scale(0.2);
+  }
+}
+
+.malflaeche {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  background: var(--papier);
+}
+
+.hinweis {
+  position: absolute;
+  left: 50%;
+  bottom: 8%;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 0.8rem 1.6rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-size: clamp(1rem, 3vmin, 1.7rem);
+  font-weight: 700;
+  pointer-events: none;
+  animation: pulsieren 2.2s ease-in-out infinite;
+}
+
+@keyframes pulsieren {
+  0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.85; }
+  50% { transform: translateX(-50%) scale(1.06); opacity: 1; }
+}
+
+/* Elternbereich in der Ecke – bewusst unauffaellig. */
+.ecke {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 100% 0 0 0;
+  background: rgba(255, 255, 255, 0.07);
+  touch-action: none;
+  z-index: 5;
+}
+
+/* Auf dem hellen Malblatt braucht die Ecke einen dunklen Hauch. */
+.malflaeche ~ .ecke {
+  background: rgba(0, 0, 0, 0.07);
+}
+
+.halte-anzeige {
+  position: absolute;
+  right: 5.5rem;
+  bottom: 1.2rem;
+  display: grid;
+  gap: 0.4rem;
+  padding: 0.7rem 1rem;
+  border-radius: 1rem;
+  background: rgba(0, 0, 0, 0.6);
+  font-size: 0.95rem;
+  z-index: 6;
+}
+
+.halte-balken {
+  display: block;
+  width: 9rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+}
+
+.halte-fuellung {
+  display: block;
+  height: 100%;
+  width: 0;
+  border-radius: 999px;
+  background: #ffd023;
+  animation: fuellen linear forwards;
+}
+
+@keyframes fuellen {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* -------------------------------- Elternmenue ------------------------------- */
+
+.menue-schleier {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(10, 6, 26, 0.75);
+  backdrop-filter: blur(6px);
+}
+
+.menue {
+  width: min(40rem, 100%);
+  max-height: 90vh;
+  overflow: auto;
+  padding: 1.6rem;
+  border-radius: 1.6rem;
+  background: #221a49;
+  border: 3px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+.menue h2 {
+  margin: 0;
+  font-size: 1.7rem;
+}
+
+.menue h3 {
+  margin: 1.4rem 0 0.7rem;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #b9b1e8;
+}
+
+.menue-text {
+  margin: 0.3rem 0 0;
+  color: #cfc8ef;
+}
+
+.menue-modi {
+  display: grid;
+  gap: 0.6rem;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+}
+
+.menue-modus {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 1rem;
+  border: 3px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+.menue-modus.gewaehlt {
+  border-color: #ffd023;
+  background: rgba(255, 208, 35, 0.16);
+}
+
+.menue-schalter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.menue-knoepfe {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.6rem;
+}
+
+.weiter,
+.beenden {
+  flex: 1 1 10rem;
+  padding: 1rem 1.2rem;
+  border: none;
+  border-radius: 1.1rem;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.weiter {
+  background: linear-gradient(100deg, #35d07f, #25d5d5);
+  color: #06281c;
+}
+
+.beenden {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.22);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .element,
+  .funke,
+  .hand,
+  .hinweis {
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+  }
+  .element {
+    animation: einblenden 3.4s linear forwards;
+  }
+  @keyframes einblenden {
+    0%, 85% { opacity: 1; transform: translate(-50%, -50%) scale(var(--groesse)); }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(var(--groesse)); }
+  }
+}
