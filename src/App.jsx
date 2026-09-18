@@ -2,9 +2,10 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import Element from './components/Element.jsx'
 import Elternmenue from './components/Elternmenue.jsx'
 import Malflaeche from './components/Malflaeche.jsx'
+import Landung from './components/Landung.jsx'
 import Startbildschirm from './components/Startbildschirm.jsx'
-import { BUCHSTABEN, FARBEN, FORMEN, TIERE, ZAHLEN, farbwort, zufall } from './data/inhalte.js'
-import { klangStarten, spieleJubel, spieleTon, sprachePausieren, sprich, stimmenVorbereiten, tonStufeFuer } from './klang.js'
+import { klangStarten, spieleJubel, spieleTon, sprachePausieren, sprich, stimmenVorbereiten } from './klang.js'
+import { inhaltFuer } from './spiellogik.js'
 
 const HALTEDAUER = 2000 // ms, die Esc bzw. die Ecke gehalten werden muss
 const LEBENSDAUER = 3400 // ms, bis ein Element verschwindet
@@ -27,56 +28,8 @@ function einstellungSchreiben(schluessel, wert) {
   }
 }
 
-// Baut aus einem Tastendruck (oder Klick) den Inhalt fuer den aktuellen Modus.
-function inhaltFuer(modus, zeichen) {
-  const gewaehlt = modus === 'gemischt' ? zufall(['buchstaben', 'formen', 'tiere']) : modus
-  const farbe = zufall(FARBEN)
-
-  if (gewaehlt === 'buchstaben') {
-    if (zeichen && /^[0-9]$/.test(zeichen)) {
-      const zahl = ZAHLEN[Number(zeichen)]
-      return { typ: 'zahl', daten: zahl, farbe: farbe.hex, sprache: zahl.wort, tonStufe: tonStufeFuer(zeichen) }
-    }
-    let treffer = null
-    if (zeichen && zeichen.length === 1) {
-      const gross = zeichen === 'ß' ? 'ß' : zeichen.toUpperCase()
-      treffer = BUCHSTABEN.find((b) => b.zeichen === gross) ?? null
-    }
-    const buchstabe = treffer ?? zufall(BUCHSTABEN)
-    const gesprochen = buchstabe.zeichen === 'ß' ? 'Eszett' : buchstabe.zeichen
-    return {
-      typ: 'buchstabe',
-      daten: buchstabe,
-      farbe: farbe.hex,
-      sprache: `${gesprochen} wie ${buchstabe.wort}`,
-      tonStufe: tonStufeFuer(buchstabe.zeichen),
-    }
-  }
-
-  if (gewaehlt === 'tiere') {
-    const tier = zufall(TIERE)
-    return {
-      typ: 'tier',
-      daten: tier,
-      farbe: farbe.hex,
-      sprache: `${tier.artikel} ${tier.name}`,
-      tonStufe: tonStufeFuer(tier.name),
-    }
-  }
-
-  const form = zufall(FORMEN)
-  const beschriftung = `${farbwort(farbe, form.genus)} ${form.name}`
-  return {
-    typ: 'form',
-    daten: { form, beschriftung },
-    farbe: farbe.hex,
-    sprache: beschriftung,
-    tonStufe: tonStufeFuer(form.name),
-  }
-}
-
 export default function App() {
-  const [phase, setPhase] = useState('start')
+  const [phase, setPhase] = useState('landung') // landung -> start (Auswahl) -> spiel
   const [modus, setModus] = useState(() => einstellungLesen('kf:modus', 'buchstaben'))
   const [sprache, setSprache] = useState(() => einstellungLesen('kf:sprache', true))
   const [toene, setToene] = useState(() => einstellungLesen('kf:toene', true))
@@ -282,9 +235,14 @@ export default function App() {
     }
   }, [halteUhrStoppen])
 
+  if (phase === 'landung') {
+    return <Landung aufWeiter={() => setPhase('start')} />
+  }
+
   if (phase === 'start') {
     return (
       <Startbildschirm
+        aufZurueck={() => setPhase('landung')}
         modus={modus}
         setModus={setModus}
         sprache={sprache}

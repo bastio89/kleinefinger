@@ -8,6 +8,9 @@ Kinder dürfen wild auf der Tastatur herumhämmern und mit der Maus klicken:
 Jeder Druck erzeugt etwas Buntes mit Ton und Ansage. Verstellen oder kaputt
 machen können sie dabei nichts.
 
+Der Ablauf: **Landingpage** (mit spielbarer Mini-Vorschau) → **Auswahl** von
+Modus und Ton → **Spiel** im Vollbild.
+
 ## Modi
 
 | Modus | Was passiert |
@@ -55,7 +58,9 @@ src/
   styles.css              gesamtes Aussehen
   data/inhalte.js         Buchstaben, Zahlen, Tiere, Formen, Farben
   data/modi.js            Beschreibung der Modi
+  spiellogik.js           waehlt Buchstabe/Form/Tier fuer einen Druck
   components/
+    Landung.jsx           Landingpage mit spielbarer Vorschau
     Startbildschirm.jsx   Auswahl vor dem Start
     Elternmenue.jsx       Pausen-Overlay
     Element.jsx           ein erscheinendes Element samt Funken

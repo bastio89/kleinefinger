@@ -1,8 +1,20 @@
 import { MODI } from '../data/modi.js'
 
-export default function Startbildschirm({ modus, setModus, sprache, setSprache, toene, setToene, aufStart }) {
+export default function Startbildschirm({
+  modus,
+  setModus,
+  sprache,
+  setSprache,
+  toene,
+  setToene,
+  aufStart,
+  aufZurueck,
+}) {
   return (
     <div className="start">
+      <button type="button" className="zurueck" onClick={aufZurueck}>
+        ← Zur Startseite
+      </button>
       <header className="start-kopf">
         <h1>
           <span className="hand">👆</span> Kleine Finger
