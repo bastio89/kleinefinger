@@ -76,8 +76,8 @@ export default function Startbildschirm({
             wird.
           </li>
           <li>
-            <strong>Beenden:</strong> <kbd>Esc</kbd> zwei Sekunden lang gedrückt halten – oder zwei
-            Sekunden in die <strong>rechte untere Ecke</strong> tippen. Dann öffnet sich das
+            <strong>Beenden:</strong> <kbd>Esc</kbd> zwei Sekunden lang gedrückt halten – oder
+            die <strong>rechte untere Ecke</strong> ebenso lange. Dann öffnet sich das
             Elternmenü.
           </li>
           <li>

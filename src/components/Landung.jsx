@@ -37,7 +37,7 @@ const SCHRITTE = [
   {
     symbol: '3',
     titel: 'Ruhig zuschauen',
-    text: 'Zum Beenden Esc zwei Sekunden halten – oder zwei Sekunden auf die rechte untere Ecke tippen.',
+    text: 'Zum Beenden Esc zwei Sekunden lang gedrückt halten – oder die rechte untere Ecke ebenso lange.',
   },
 ]
 
@@ -50,7 +50,7 @@ const SICHERHEIT = [
   {
     symbol: '🔒',
     titel: 'Elternsperre',
-    text: 'Das Menü öffnet erst nach zwei Sekunden Halten – für kleine Finger praktisch nicht zu treffen.',
+    text: 'Das Menü öffnet sich erst, wenn man zwei Sekunden lang hält – für kleine Finger praktisch nicht zu treffen.',
   },
   {
     symbol: '🚫',
@@ -68,12 +68,12 @@ const FRAGEN = [
   {
     frage: 'Ab welchem Alter passt das?',
     antwort:
-      'Ab etwa einem Jahr, weil schon ein einzelner Tastendruck belohnt wird. Für Kindergartenkinder sind die Buchstaben- und Zahlenansagen spannend, weil sie erste Wörter mitlesen.',
+      'Ab etwa einem Jahr, weil schon ein einzelner Tastendruck etwas auslöst. Für Kindergartenkinder sind die Buchstaben- und Zahlenansagen spannend, weil sie dabei erste Wörter mitlesen können.',
   },
   {
     frage: 'Funktioniert es auf dem Tablet?',
     antwort:
-      'Ja. Tippen erzeugt genau wie Klicken ein Element, und im Malmodus zieht der Finger die Spur. Weil es dort keine Esc-Taste gibt, öffnet auch zwei Sekunden Halten in der rechten unteren Ecke das Elternmenü.',
+      'Ja. Ein Tipp wirkt genauso wie ein Mausklick, und im Malmodus zieht der Finger die Spur. Weil es dort keine Esc-Taste gibt, öffnet sich das Elternmenü auch, wenn man die rechte untere Ecke zwei Sekunden lang gedrückt hält.',
   },
   {
     frage: 'Warum hört man keine Sprache?',
@@ -81,7 +81,7 @@ const FRAGEN = [
       'Die Ansagen nutzen die deutsche Stimme des Geräts. Fehlt sie oder ist sie nicht installiert, bleibt es bei den Klängen – alles andere funktioniert weiter. Auf dem Handy hilft es oft, den Stumm-Schalter zu prüfen.',
   },
   {
-    frage: 'Kann mein Kind etwas kaputt machen?',
+    frage: 'Kann mein Kind etwas kaputtmachen?',
     antwort:
       'Nein. Es gibt nichts zu löschen, nichts zu kaufen und nichts zu verschicken. Im schlimmsten Fall ist der Bildschirm voller Sterne.',
   },
@@ -337,8 +337,8 @@ export default function Landung({ aufWeiter }) {
 
       <footer className="l-fuss">
         <p>
-          Mit Liebe für kleine Finger gebaut – mit deutschen Wörtern, deutschen Ansagen
-          und ohne Ablenkung.
+          Mit Liebe für kleine Finger gebaut: deutsche Wörter, deutsche Ansagen, keine
+          Ablenkung.
         </p>
       </footer>
     </div>

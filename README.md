@@ -16,7 +16,7 @@ Modus und Ton → **Spiel** im Vollbild.
 | Modus | Was passiert |
 | --- | --- |
 | **Buchstaben & Zahlen** | Die gedrückte Taste erscheint groß – mit Bild, Wort und Ansage („A wie Apfel“). Umlaute und ß sind dabei. Zahlen zeigen zusätzlich die passende Anzahl Punkte. |
-| **Formen & Farben** | Sterne, Herzen, Wolken, Kleeblätter … in acht Farben, jeweils richtig gebeugt angesagt („roter Stern“, „orange Wolke“). |
+| **Formen & Farben** | Sterne, Herzen, Wolken, Kleeblätter … in acht Farben, jeweils richtig gebeugt angesagt („roter Stern“, „orange Wolke“, „türkises Herz“). |
 | **Tiere** | 36 Tiere mit deutschem Namen und Artikel („der Igel“, „die Schnecke“). |
 | **Malen** | Maus oder Finger ziehen Regenbogenspuren über ein weißes Blatt, Tasten setzen bunte Kleckse. Alte Striche verblassen langsam, das Blatt läuft nie zu. |
 | **Bunt gemischt** | Buchstaben, Formen und Tiere wechseln sich zufällig ab. |
@@ -24,9 +24,9 @@ Modus und Ton → **Spiel** im Vollbild.
 ## Für Eltern
 
 * Das Spiel startet im **Vollbild**, alle Tastenkürzel werden abgefangen.
-* **Elternmenü öffnen:** <kbd>Esc</kbd> zwei Sekunden gedrückt halten – oder
-  zwei Sekunden lang die **rechte untere Ecke** antippen (für Tablets ohne
-  Tastatur). Ein Fortschrittsbalken zeigt das Halten an.
+* **Elternmenü öffnen:** <kbd>Esc</kbd> zwei Sekunden lang gedrückt halten –
+  oder die **rechte untere Ecke** ebenso lange (für Tablets ohne Tastatur).
+  Ein Fortschrittsbalken zeigt das Halten an.
 * Im Elternmenü lassen sich Modus, Klänge, Sprachausgabe und Vollbild
   umstellen, das Malblatt leeren und das Spiel beenden.
 * Die Sprachausgabe nutzt die deutsche Stimme des Geräts (Web Speech API).

@@ -30,7 +30,8 @@ export const BUCHSTABEN = [
   { zeichen: 'Ä', wort: 'Ähre', emoji: '🌾' },
   { zeichen: 'Ö', wort: 'Öl', emoji: '🫒' },
   { zeichen: 'Ü', wort: 'Übung', emoji: '🤸' },
-  { zeichen: 'ß', wort: 'Straße', emoji: '🛣️' },
+  // ß steht nie am Wortanfang, darum "wie in" statt "wie".
+  { zeichen: 'ß', wort: 'Straße', emoji: '🛣️', ansage: 'Eszett wie in Straße' },
 ]
 
 export const ZAHLEN = [
@@ -110,14 +111,15 @@ export const FARBEN = [
   { name: 'orange', hex: '#ff9130' },
   { name: 'lila', hex: '#b269ff', unveraenderlich: true },
   { name: 'rosa', hex: '#ff7fc8', unveraenderlich: true },
-  { name: 'türkis', hex: '#25d5d5', unveraenderlich: true },
+  { name: 'türkis', hex: '#25d5d5' },
 ]
 
 const ENDUNG = { m: 'er', f: 'e', n: 'es' }
 // Farben auf -e (orange) haengen nur r/-/s an: oranger Mond, orange Sonne, oranges Herz.
 const ENDUNG_AUF_E = { m: 'r', f: '', n: 's' }
 
-// "rot" + Stern (m) -> "roter Stern"; lila/rosa/tuerkis bleiben unveraendert.
+// "rot" + Stern (m) -> "roter Stern". Nur lila und rosa bleiben unveraendert,
+// alle anderen Farbwoerter werden gebeugt (auch tuerkis und orange).
 export function farbwort(farbe, genus) {
   if (farbe.unveraenderlich) return farbe.name
   const tabelle = farbe.name.endsWith('e') ? ENDUNG_AUF_E : ENDUNG

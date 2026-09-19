@@ -17,12 +17,11 @@ export function inhaltFuer(modus, zeichen) {
       treffer = BUCHSTABEN.find((b) => b.zeichen === gross) ?? null
     }
     const buchstabe = treffer ?? zufall(BUCHSTABEN)
-    const gesprochen = buchstabe.zeichen === 'ß' ? 'Eszett' : buchstabe.zeichen
     return {
       typ: 'buchstabe',
       daten: buchstabe,
       farbe: farbe.hex,
-      sprache: `${gesprochen} wie ${buchstabe.wort}`,
+      sprache: buchstabe.ansage ?? `${buchstabe.zeichen} wie ${buchstabe.wort}`,
       tonStufe: tonStufeFuer(buchstabe.zeichen),
     }
   }
