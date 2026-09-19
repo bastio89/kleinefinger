@@ -337,8 +337,8 @@ export default function Landung({ aufWeiter }) {
 
       <footer className="l-fuss">
         <p>
-          Mit Liebe für kleine Finger gebaut. Inspiriert von tinyfinger.net, hier ganz auf
-          Deutsch.
+          Mit Liebe für kleine Finger gebaut – mit deutschen Wörtern, deutschen Ansagen
+          und ohne Ablenkung.
         </p>
       </footer>
     </div>

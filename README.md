@@ -1,8 +1,8 @@
 # 👆 Kleine Finger
 
-Eine bunte Tastatur- und Mausspielwiese für die Allerkleinsten – auf Deutsch.
-Inspiriert von [tinyfinger.net](https://tinyfinger.net), aber mit deutschen
-Wörtern, deutscher Sprachausgabe und deutschen Artikeln.
+Eine bunte Tastatur- und Mausspielwiese für die Allerkleinsten – ganz auf
+Deutsch, mit deutschen Wörtern, deutscher Sprachausgabe und richtigen
+Artikeln.
 
 Kinder dürfen wild auf der Tastatur herumhämmern und mit der Maus klicken:
 Jeder Druck erzeugt etwas Buntes mit Ton und Ansage. Verstellen oder kaputt
